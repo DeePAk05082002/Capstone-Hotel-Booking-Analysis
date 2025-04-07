@@ -20,6 +20,13 @@ This dataset contains comprehensive details related to hotel bookings including:
 📊 **Source**: [Hotel Booking Dataset - GitHub (AccioJob)](https://github.com/acciojob-data-analytics/hotel_booking)
 
 ---
+## 🎥 Video Walkthrough
+
+Check out the full video explanation of this project below:
+
+
+
+---
 
 ## 🗂️ Table Descriptions
 
