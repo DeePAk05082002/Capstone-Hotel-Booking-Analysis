@@ -79,7 +79,7 @@ Provides insights on:
 | country | TEXT | Guest's country code | ISO code |
 | Booking_id | TEXT | Unique booking identifier | Alphanumeric |
 
-###Sample Data
+### Sample Data
 ![image](https://github.com/user-attachments/assets/edfb0188-9de6-4616-bdc9-d41dbba15f2a)
 
 ### 2. Guest_Info
@@ -90,7 +90,7 @@ Provides insights on:
 | babies | INT | Number of babies |
 | Booking_id | TEXT | Foreign key to booking |
 
-###Sample Data
+### Sample Data
 ![image](https://github.com/user-attachments/assets/7b35b17c-b909-4916-964c-afe139e94e8e)
 
 ### 3. Booking_Source_History
@@ -109,7 +109,7 @@ Provides insights on:
 | customer_type | TEXT | 'Transient', 'Contract', 'Group', 'Transient-Party' |
 | Booking_id | TEXT | Foreign key to booking |
 
-###Sample Data
+### Sample Data
 ![image](https://github.com/user-attachments/assets/7378d5bc-950e-424f-af72-6014ba87dc28)
 
 
@@ -122,7 +122,7 @@ Provides insights on:
 | total_of_special_requests | INT | Guest special requests count |
 | Booking_id | TEXT | Foreign key to booking |
 
-###Sample Data
+### Sample Data
 ![image](https://github.com/user-attachments/assets/c36ed0d4-c7bc-4c8f-a955-7b3be12c24cc)
 
 
@@ -133,7 +133,7 @@ Provides insights on:
 | reservation_status_date | DATE | Status update date |
 | Booking_id | TEXT | Foreign key to booking |
 
-###Sample Data
+### Sample Data
 ![image](https://github.com/user-attachments/assets/32b4197e-0d72-4522-b138-d02a2d6d5804)
 
 
@@ -143,7 +143,7 @@ Provides insights on:
 | country_code | TEXT | ISO country code |
 | country_name | TEXT | Full country name |
 
-###Sample Data          
+### Sample Data          
 ![image](https://github.com/user-attachments/assets/c27ae26b-0b97-4881-9d83-db164b598f30)
 
 
@@ -155,7 +155,7 @@ Provides insights on:
 | booking_changes | INT | Number of modifications |
 | Booking_id | TEXT | Foreign key to booking |
 
-###Sample Data
+### Sample Data
 ![image](https://github.com/user-attachments/assets/e71473fb-011a-4e05-86a6-db134a61c3cf)
 
 
@@ -165,7 +165,7 @@ Provides insights on:
 | distribution_channel_id | INT | Unique channel ID |
 | distribution_channel | TEXT | 'Direct', 'Corporate', 'TA/TO', 'GDS', etc. |
 
-###Sample Data
+### Sample Data
 ![image](https://github.com/user-attachments/assets/82067c28-2862-476f-86d6-a7c6bcec6de9)
 
 
@@ -175,7 +175,7 @@ Provides insights on:
 | market_segment_id | INT | Unique segment ID |
 | market_segment | TEXT | 'Direct', 'Corporate', 'Online TA', etc. |
 
-###Sample Data
+### Sample Data
 ![image](https://github.com/user-attachments/assets/5a491e39-751a-4a08-82c0-aa645acedc6a)
 
 
