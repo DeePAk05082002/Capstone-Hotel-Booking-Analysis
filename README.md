@@ -195,7 +195,45 @@ Provides insights on:
 
 ## 🔍 Sample EDA Questions
 
-1. **What is the cancellation rate for each hotel type?**
+1.	**Analyze how booking patterns have evolved over the years, including yearoveryear changes in bookings and cancellations.**
+
+Query Explanation :  
+
+This SQL query analyzes yearly booking trends and cancellation rates, with a focus on year-over-year (YOY) comparisons. Here’s what each part does:  
+
+Common Table Expression (CTE) `test`:
+•	arrival_date_year "Year": Extracts the year from the arrival date and labels it as "Year".  
+•	count(Booking_id) "Total_Booking": Counts the total number of bookings per year.  
+•	sum(is_canceled) "cancel": Sums cancellations (assumes `is_canceled` is a binary flag where 1 = canceled).  
+•	FROM booking_details GROUP BY arrival_date_year: Aggregates data by year.  
+
+Main Query:
+•	Year, Total_Booking: Displays the year and total bookings from the CTE.  
+• Total_Booking - LAG(Total_Booking) OVER (ORDER BY year) AS YOY_Booking_Difference:  
+-	Uses the LAG() window function to compare the current year’s bookings with the previous year’s.  
+-	Calculates the absolute change in bookings YOY.  
+•	cancel: Shows total cancellations per year.  
+•	cancel - LAG(cancel) OVER (ORDER BY Year) AS YOY_Cancellation_Difference:  
+-	Computes the absolute change in cancellations YOY (similar to bookings).  
+
+Execution Flow:
+1.	The CTE (`test`) aggregates raw data by year.  
+2.	The main query adds YOY comparisons using `LAG()` to track trends.  
+
+
+
+Purpose: 
+This query helps identify:  
+-	Growth/decline in booking volume over time.  
+-	Whether cancellation rates are improving or worsening YOY.  
+-	Correlations between bookings and cancellations (e.g., higher bookings may lead to higher absolute cancellations).  
+
+
+Query Result : 
+
+ ![image](https://github.com/user-attachments/assets/2d79a968-fff2-4d83-81b6-d3d142386119)
+
+
 2. **Which meal plans are most preferred by repeated guests?**
 3. **Is there any seasonality in booking trends across months or weeks?**
 
