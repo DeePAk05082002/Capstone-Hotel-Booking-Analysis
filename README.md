@@ -146,6 +146,10 @@ Provides insights on:
 | market_segment | TEXT | 'Direct', 'Corporate', 'Online TA', etc. |
 
 ---
+## ER Diagram 
+ ![image](https://github.com/user-attachments/assets/7684a0ab-1c07-4042-a829-a98f5765d41e)
+
+---
 
 ## 🔍 Sample EDA Questions
 
