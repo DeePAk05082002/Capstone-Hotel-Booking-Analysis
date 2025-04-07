@@ -115,12 +115,23 @@ Provides insights on:
 
 ## 📈 Output
 
-An interactive Power BI dashboard displaying:
-- Monthly booking trends
-- Cancellation breakdowns
-- ADR fluctuations
-- Guest and room preferences
-- Source-wise booking distributions
+An interactive Power BI Reports displaying:
+- Booking Trends & Seasonality Report
+    ![image](https://github.com/user-attachments/assets/db17d6c5-b99d-4c84-b160-04001976f1c5)
+
+- Guest Demographics & Behavior Report
+   ![image](https://github.com/user-attachments/assets/c767d1c5-3bbc-43e8-a8da-04a781c1c130)
+
+- Pricing & Revenue Optimization Report
+   ![image](https://github.com/user-attachments/assets/3a659e0f-2310-47a9-8d15-a8228bf55a23)
+
+- Reservation Status & Cancellations Report
+   ![image](https://github.com/user-attachments/assets/429dbdb2-6650-4573-89ae-5cc6a13ef7a1)
+
+- Booking Channels & Market Segmentation Report
+   ![image](https://github.com/user-attachments/assets/ed38e6c1-5e91-4e01-92a7-92c941fdede1)
+
+
 
 ---
 
@@ -138,9 +149,9 @@ Dataset credit: [AccioJob Data Analytics GitHub](https://github.com/acciojob-dat
 
 ## 🚀 Author
 
-**Nihal Chaudhary**  
+**Deepak Chaudhary**  
 Data Analyst | Python, SQL, Power BI Enthusiast  
-[LinkedIn](https://www.linkedin.com/in/your-profile) | [GitHub](https://github.com/your-profile)
+[LinkedIn](www.linkedin.com/in/deepakchaudhary050802) | [GitHub](https://github.com/DeePAk05082002)
 
 ---
 
