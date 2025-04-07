@@ -298,6 +298,26 @@ This query provides a clear view of booking volume distribution across different
 
 ---
 
+## 📊 Sample Power BI Dashboard Questions
+
+1. **Visualize booking trends over the years, including the number of bookings, cancellations, and average lead time. Identify seasonality patterns.**
+
+![image](https://github.com/user-attachments/assets/5eb0f8cd-f20e-4e23-8f9e-588ced6ad063)
+
+   
+2. **Compare stays in weekend nights and weekday nights to determine preferences and variations by hotel type.**
+
+![image](https://github.com/user-attachments/assets/7a9f6cb1-d9bb-4f63-a52e-d60f9b6cc54e)
+
+   
+3. **Visualize the distribution of reserved and assigned room types. Analyze whether guests tend to receive the room type they initially reserved.**
+
+![image](https://github.com/user-attachments/assets/6d3b0d56-e51b-4c77-89e0-9ae113011ba4)
+
+   
+
+---
+
 ## 🛠 Tools Used
 
 - **SQL**: Data extraction and transformation
