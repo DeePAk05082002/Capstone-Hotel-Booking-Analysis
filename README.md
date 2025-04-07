@@ -202,30 +202,99 @@ Provides insights on:
 - Query-Explanation:
 This query analyzes the distribution of meal preferences across all bookings. Here's what each part does:
 
-o	Selects the meal type from the meal_and_stay_details table
-o	Counts the total number of bookings for each meal type
-o	Calculates the percentage share of each meal type
-o	Uses a subquery (SELECT COUNT(*) FROM meal_and_stay_details) to get the total bookings count
-o	Multiplies by 100 and rounds to 2 decimal places for readability
-o	Specifies the source table (meal_and_stay_details)
-o	Groups results by meal type to aggregate the counts
-o	Sorts results by total bookings in descending order (most popular meals first)
+     * Selects the meal type from the meal_and_stay_details table
+     *	Counts the total number of bookings for each meal type
+     *	Calculates the percentage share of each meal type
+     *	Uses a subquery (SELECT COUNT(*) FROM meal_and_stay_details) to get the total bookings count
+     *	Multiplies by 100 and rounds to 2 decimal places for readability
+     *	Specifies the source table (meal_and_stay_details)
+     *	Groups results by meal type to aggregate the counts
+     *	Sorts results by total bookings in descending order (most popular meals first)
 
 - Purpose:
-This query helps understand:
-•	The popularity distribution of different meal options
-•	Which meal types are most/least preferred by guests
-•	The relative market share of each meal category
+     This query helps understand:
+     *	The popularity distribution of different meal options
+     *	Which meal types are most/least preferred by guests
+     *	The relative market share of each meal category
 
 - Query Result   :
-![image](https://github.com/user-attachments/assets/f2a9e038-4b5b-4d62-888b-7ce8c76d72a7)
-![image](https://github.com/user-attachments/assets/24b0d03d-04dd-44dd-8e79-fb547fab48b0)
+  
+ ![image](https://github.com/user-attachments/assets/f2a9e038-4b5b-4d62-888b-7ce8c76d72a7)
+ 
+ ![image](https://github.com/user-attachments/assets/24b0d03d-04dd-44dd-8e79-fb547fab48b0)
 
  
  
 
-2. **How does lead time affect cancellation probability across hotels?**
-3. **What trends can be observed in average daily rate (ADR) over time?**
+2. **Understand the distribution of bookings across different market segments and calculate summary statistics for lead times within each segment.**
+
+![image](https://github.com/user-attachments/assets/ab47cba1-aa44-4d4d-afd6-91beda3141a6)
+
+ 
+- Query Explanation:
+
+This SQL query analyzes booking distribution across different market segments. Here's what each part does:
+
+1.	Columns Selected:
+-	`b.market_segment_id` (aliased as Market_Segment_ID): The unique identifier for each market segment
+-	`m.market_segment` (aliased as Market_Segment_Name): The descriptive name of each market segment
+-	`count(b.Booking_id)` (aliased as Bookings): Counts the number of bookings per segment
+
+2.	Tables Used:
+-	`booking_source_and_history` (aliased as b): Contains booking records with segment IDs
+-	`market_segment` (aliased as m): Contains segment ID-name mappings
+
+3.	 Join Operation:
+-	Inner join on `market_segment_id` connects booking records with segment names
+
+4.	 Grouping:
+-	Results are grouped by both segment ID and name to ensure accurate counting
+
+- Purpose:
+This query provides a clear view of booking volume distribution across different market segments, enabling analysis of which customer segments generate the most business. The results show both the technical ID and human-readable name for each segment along with their respective booking counts.
+
+- Query Result   :
+
+  ![image](https://github.com/user-attachments/assets/80c5e12f-5256-4054-8b57-2109e7ade2ec)
+
+
+3.  **Analyze the impact of booking changes on cancellation rates. Calculate cancellation rates for bookings with different numbers of changes.**
+
+![image](https://github.com/user-attachments/assets/b3970bc1-abf8-407b-8f64-ceafbea9c7d2)
+
+ 
+- Query Explanation:
+      This query analyzes the relationship between booking modifications and cancellation rates. Here's the breakdown:
+
+  1.	Columns Selected:
+  
+         * rd.booking_changes: Number of modifications made to each booking
+         * COUNT(b.booking_id): Total number of bookings for each modification count
+         * SUM(CASE WHEN...Canceled...): Count of canceled bookings per modification count
+         * Cancellation rate calculation: Percentage of bookings canceled per modification count
+  2.	Tables Joined:
+        
+          * booking_details (core booking information)
+          * room_details (contains booking_changes data)
+          * reservation_status (contains cancellation status)
+      
+    3.	Key Corrections:
+  
+          * Changed SUN to SUM (function name correction)
+          * Fixed the cancellation rate calculation to use canceled status
+          * Standardized JOIN syntax
+
+- Purpose:
+   This query helps understand:
+   •	How frequently bookings are modified
+   •	Whether modification frequency correlates with cancellation likelihood
+   •	The cancellation risk associated with different numbers of booking changes
+   The results can help identify if multiple booking changes serve as an early warning indicator for potential cancellations.
+
+- Query Result   :
+
+![image](https://github.com/user-attachments/assets/280250ee-f2a2-40c5-a585-c1ae06c6653a)
+
 
 ---
 
