@@ -195,53 +195,38 @@ Provides insights on:
 
 ## 🔍 Sample EDA Questions
 
-1.	**Analyze how booking patterns have evolved over the years, including yearoveryear changes in bookings and cancellations.**
+1. **Understand the distribution of meal plans (e.g., BB, HB, FB, SC) and identify any patterns or preferences.**
 
-Query Explanation :  
+![image](https://github.com/user-attachments/assets/1dd0c3a2-f506-4e53-8911-7e09342be8d9)
 
-This SQL query analyzes yearly booking trends and cancellation rates, with a focus on year-over-year (YOY) comparisons. Here’s what each part does:  
+Query-Explanation:
+This query analyzes the distribution of meal preferences across all bookings. Here's what each part does:
+1.	Line 1-2 (SELECT meal):
+o	Selects the meal type from the meal_and_stay_details table
+2.	Line 3 (COUNT(*) AS total_bookings):
+o	Counts the total number of bookings for each meal type
+3.	Line 4 (Percentage calculation):
+o	Calculates the percentage share of each meal type
+o	Uses a subquery (SELECT COUNT(*) FROM meal_and_stay_details) to get the total bookings count
+o	Multiplies by 100 and rounds to 2 decimal places for readability
+4.	Line 5 (FROM clause):
+o	Specifies the source table (meal_and_stay_details)
+5.	Line 6 (GROUP BY meal):
+o	Groups results by meal type to aggregate the counts
+6.	Line 7 (ORDER BY):
+o	Sorts results by total bookings in descending order (most popular meals first)
+Purpose:
+This query helps understand:
+•	The popularity distribution of different meal options
+•	Which meal types are most/least preferred by guests
+•	The relative market share of each meal category
+Query Result   :
+![image](https://github.com/user-attachments/assets/f2a9e038-4b5b-4d62-888b-7ce8c76d72a7)
+![image](https://github.com/user-attachments/assets/24b0d03d-04dd-44dd-8e79-fb547fab48b0)
 
-Common Table Expression (CTE) `test`:
-•	arrival_date_year "Year": Extracts the year from the arrival date and labels it as "Year".  
-•	count(Booking_id) "Total_Booking": Counts the total number of bookings per year.  
-•	sum(is_canceled) "cancel": Sums cancellations (assumes `is_canceled` is a binary flag where 1 = canceled).  
-•	FROM booking_details GROUP BY arrival_date_year: Aggregates data by year.  
+ 
+ 
 
-Main Query:
-•	Year, Total_Booking: Displays the year and total bookings from the CTE.  
-• Total_Booking - LAG(Total_Booking) OVER (ORDER BY year) AS YOY_Booking_Difference:  
--	Uses the LAG() window function to compare the current year’s bookings with the previous year’s.  
--	Calculates the absolute change in bookings YOY.  
-•	cancel: Shows total cancellations per year.  
-•	cancel - LAG(cancel) OVER (ORDER BY Year) AS YOY_Cancellation_Difference:  
--	Computes the absolute change in cancellations YOY (similar to bookings).  
-
-Execution Flow:
-1.	The CTE (`test`) aggregates raw data by year.  
-2.	The main query adds YOY comparisons using `LAG()` to track trends.  
-
-
-
-Purpose: 
-This query helps identify:  
--	Growth/decline in booking volume over time.  
--	Whether cancellation rates are improving or worsening YOY.  
--	Correlations between bookings and cancellations (e.g., higher bookings may lead to higher absolute cancellations).  
-
-
-Query Result : 
-
- ![image](https://github.com/user-attachments/assets/2d79a968-fff2-4d83-81b6-d3d142386119)
-
-
-2. **Which meal plans are most preferred by repeated guests?**
-3. **Is there any seasonality in booking trends across months or weeks?**
-
----
-
-## 📊 Sample Power BI Dashboard Questions
-
-1. **What are the top booking channels and their impact on cancellations?**
 2. **How does lead time affect cancellation probability across hotels?**
 3. **What trends can be observed in average daily rate (ADR) over time?**
 
