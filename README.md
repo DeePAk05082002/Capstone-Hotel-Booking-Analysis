@@ -64,28 +64,86 @@ Provides insights on:
 
 ## 🧾 Data Dictionary
 
-| Column | Description |
-|--------|-------------|
-| `booking_id` | Unique identifier for each booking |
-| `hotel` | Type of hotel – Resort or City |
-| `lead_time` | Number of days between booking and arrival |
-| `arrival_date_year/month/week_number/day` | Arrival dates |
-| `stays_in_weekend_nights` | Nights spent over weekends |
-| `stays_in_week_nights` | Nights spent on weekdays |
-| `adults/children/babies` | Count of each type of guest |
-| `meal` | Type of meal package |
-| `assigned_room_type` | Final room type assigned |
-| `reserved_room_type` | Room type initially booked |
-| `booking_changes` | Number of changes made to the booking |
-| `market_segment` | Booking origin (e.g., OTA, Direct) |
-| `distribution_channel` | How the booking was made |
-| `is_repeated_guest` | 1 = Repeated guest, 0 = New guest |
-| `previous_cancellations` | Count of past cancellations |
-| `deposit_type` | No Deposit / Non-Refund etc. |
-| `customer_type` | Transient, Group, etc. |
-| `reservation_status` | Final status of the booking |
-| `adr` | Average Daily Rate |
-| `total_of_special_requests` | Count of guest requests |
+### 1. Booking_Details
+| Column | Data Type | Description | Possible Values |
+|--------|-----------|-------------|-----------------|
+| hotel | TEXT | Type of hotel booked | 'Resort Hotel', 'City Hotel' |
+| is_canceled | BIGINT | Booking cancellation status | 0 (No), 1 (Yes) |
+| lead_time | BIGINT | Days between booking and arrival | 0–737 |
+| arrival_date_year | BIGINT | Year of arrival | 2015–2017 |
+| arrival_date_month | TEXT | Month of arrival | Jan–Dec |
+| arrival_date_week_number | BIGINT | Week number | 1–53 |
+| arrival_date_day_of_month | BIGINT | Day of month | 1–31 |
+| stays_in_weekend_nights | BIGINT | Weekend nights stayed | 0–19 |
+| stays_in_week_nights | BIGINT | Week nights stayed | 0–50 |
+| country | TEXT | Guest's country code | ISO code |
+| Booking_id | TEXT | Unique booking identifier | Alphanumeric |
+
+### 2. Guest_Info
+| Column | Data Type | Description |
+|--------|-----------|-------------|
+| adults | INT | Number of adults |
+| children | INT | Number of children |
+| babies | INT | Number of babies |
+| Booking_id | TEXT | Foreign key to booking |
+
+### 3. Booking_Source_History
+| Column | Data Type | Description |
+|--------|-----------|-------------|
+| country | TEXT | Guest’s country code |
+| market_segment_id | INT | Market segment ID |
+| distribution_channel_id | INT | Distribution channel ID |
+| is_repeated_guest | INT | 0 = No, 1 = Yes |
+| previous_cancellations | INT | Prior cancellations |
+| previous_bookings_not_canceled | INT | Past successful bookings |
+| deposit_type | TEXT | 'No Deposit', 'Non Refund', 'Refundable' |
+| agent | INT | Booking agent ID |
+| company | INT | Company ID |
+| days_in_waiting_list | INT | Waiting list days |
+| customer_type | TEXT | 'Transient', 'Contract', 'Group', 'Transient-Party' |
+| Booking_id | TEXT | Foreign key to booking |
+
+### 4. Meal_And_Stay_Details
+| Column | Data Type | Description |
+|--------|-----------|-------------|
+| meal | TEXT | 'BB', 'HB', 'FB', 'SC' |
+| adr | DECIMAL | Average Daily Rate |
+| required_car_parking_spaces | INT | Number of parking spots |
+| total_of_special_requests | INT | Guest special requests count |
+| Booking_id | TEXT | Foreign key to booking |
+
+### 5. Reservation_Status
+| Column | Data Type | Description |
+|--------|-----------|-------------|
+| reservation_status | TEXT | 'Check-Out', 'Canceled', 'No-Show' |
+| reservation_status_date | DATE | Status update date |
+| Booking_id | TEXT | Foreign key to booking |
+
+### 6. Country
+| Column | Data Type | Description |
+|--------|-----------|-------------|
+| country_code | TEXT | ISO country code |
+| country_name | TEXT | Full country name |
+
+### 7. Room_Details
+| Column | Data Type | Description |
+|--------|-----------|-------------|
+| reserved_room_type | TEXT | Room type booked |
+| assigned_room_type | TEXT | Room type assigned |
+| booking_changes | INT | Number of modifications |
+| Booking_id | TEXT | Foreign key to booking |
+
+### 8. Distribution_Channel
+| Column | Data Type | Description |
+|--------|-----------|-------------|
+| distribution_channel_id | INT | Unique channel ID |
+| distribution_channel | TEXT | 'Direct', 'Corporate', 'TA/TO', 'GDS', etc. |
+
+### 9. Market_Segment
+| Column | Data Type | Description |
+|--------|-----------|-------------|
+| market_segment_id | INT | Unique segment ID |
+| market_segment | TEXT | 'Direct', 'Corporate', 'Online TA', etc. |
 
 ---
 
