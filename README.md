@@ -199,28 +199,25 @@ Provides insights on:
 
 ![image](https://github.com/user-attachments/assets/1dd0c3a2-f506-4e53-8911-7e09342be8d9)
 
-Query-Explanation:
+- Query-Explanation:
 This query analyzes the distribution of meal preferences across all bookings. Here's what each part does:
-1.	Line 1-2 (SELECT meal):
+
 o	Selects the meal type from the meal_and_stay_details table
-2.	Line 3 (COUNT(*) AS total_bookings):
 o	Counts the total number of bookings for each meal type
-3.	Line 4 (Percentage calculation):
 o	Calculates the percentage share of each meal type
 o	Uses a subquery (SELECT COUNT(*) FROM meal_and_stay_details) to get the total bookings count
 o	Multiplies by 100 and rounds to 2 decimal places for readability
-4.	Line 5 (FROM clause):
 o	Specifies the source table (meal_and_stay_details)
-5.	Line 6 (GROUP BY meal):
 o	Groups results by meal type to aggregate the counts
-6.	Line 7 (ORDER BY):
 o	Sorts results by total bookings in descending order (most popular meals first)
-Purpose:
+
+- Purpose:
 This query helps understand:
 •	The popularity distribution of different meal options
 •	Which meal types are most/least preferred by guests
 •	The relative market share of each meal category
-Query Result   :
+
+- Query Result   :
 ![image](https://github.com/user-attachments/assets/f2a9e038-4b5b-4d62-888b-7ce8c76d72a7)
 ![image](https://github.com/user-attachments/assets/24b0d03d-04dd-44dd-8e79-fb547fab48b0)
 
